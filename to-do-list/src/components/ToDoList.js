@@ -20,3 +20,5 @@ const TodoList = ({ tasks, toggleComplete, deleteTask }) => (
     ))}
   </div>
 );
+
+export default TodoList;

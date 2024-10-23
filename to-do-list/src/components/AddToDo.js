@@ -1,3 +1,5 @@
+import React, { useState } from 'react';
+
 const AddTodo = ({ addTask }) => {
   const [task, setTask] = useState("");
 
@@ -21,3 +23,5 @@ const AddTodo = ({ addTask }) => {
     </form>
   );
 };
+
+export default AddTodo;
