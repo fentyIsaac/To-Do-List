@@ -1,30 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import AddTodo from './components/AddToDo';
-import TodoList from './components/ToDoList';
-
+// src/App.js
+import React, { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import AddTodo from './components/AddTodo';
+import TodoList from './components/TodoList';
 
 const App = () => {
-  const [tasks, setTasks] = useState([]);
+  const [todos, setTodos] = useState([]);
 
-  const addTask = (text) => {
-    setTasks([...tasks, { text, completed: false }]);
-  };
-
-  const toggleComplete = (index) => {
-    const newTasks = [...tasks];
-    newTasks[index].completed = !newTasks[index].completed;
-    setTasks(newTasks);
-  };
-
-  const deleteTask = (index) => {
-    setTasks(tasks.filter((_, i) => i !== index));
+  const addTask = (task) => {
+    setTodos([...todos, task]);
   };
 
   return (
-    <div>
-      <h1>Todo List</h1>
-      <AddTodo addTask={addTask} />
-      <TodoList tasks={tasks} toggleComplete={toggleComplete} deleteTask={deleteTask} />
+    <div className="container mt-5">
+      <h1 className="text-center">To-Do List</h1>
+      <div className="row">
+        <div className="col-md-6 offset-md-3">
+          <AddTodo addTask={addTask} />
+          <TodoList todos={todos} />
+        </div>
+      </div>
     </div>
   );
 };

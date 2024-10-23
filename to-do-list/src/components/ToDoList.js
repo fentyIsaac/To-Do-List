@@ -1,24 +1,16 @@
-const TodoItem = ({ task, toggleComplete, deleteTask }) => (
-  <div>
-    <span style={{ textDecoration: task.completed ? "line-through" : "none" }}>
-      {task.text}
-    </span>
-    <button onClick={toggleComplete}>Complete</button>
-    <button onClick={deleteTask}>Delete</button>
-  </div>
-);
+// src/components/TodoList.js
+import React from 'react';
 
-const TodoList = ({ tasks, toggleComplete, deleteTask }) => (
-  <div>
-    {tasks.map((task, index) => (
-      <TodoItem
-        key={index}
-        task={task}
-        toggleComplete={() => toggleComplete(index)}
-        deleteTask={() => deleteTask(index)}
-      />
-    ))}
-  </div>
-);
+const TodoList = ({ todos }) => {
+  return (
+    <ul className="list-group mt-3">
+      {todos.map((todo, index) => (
+        <li key={index} className="list-group-item">
+          {todo}
+        </li>
+      ))}
+    </ul>
+  );
+};
 
 export default TodoList;
